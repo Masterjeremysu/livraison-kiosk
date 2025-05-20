@@ -6,7 +6,7 @@ import LayoutBorneClair from "../layouts/LayoutBorneClair";
 import ArticlesDispo from "../composants/ArticlesDispo";
 import type { Article } from "../composants/ArticlesDispo";
 import BarreRechercheArticle from "../composants/BarreRechercheArticle";
-import { envoyerEmailLivraison } from "../services/envoyerEmailLivraison";
+
 
 
 
