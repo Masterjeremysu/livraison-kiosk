@@ -9,7 +9,8 @@ export default async function handler(req: Request): Promise<Response> {
     });
   }
 
-  const { liste, borne, date, destinataire } = await req.json();
+  const body = await req.json();
+  const { liste, borne, date, destinataire } = body;
 
   if (!liste || !borne || !date || !destinataire) {
     return new Response(JSON.stringify({ error: "Champs manquants" }), {
@@ -29,7 +30,7 @@ export default async function handler(req: Request): Promise<Response> {
       status: 200,
     });
   } catch (error) {
-    console.error("Erreur envoi email :", error);
+    console.error("Erreur email", error);
     return new Response(JSON.stringify({ error: "Erreur serveur" }), {
       status: 500,
     });
