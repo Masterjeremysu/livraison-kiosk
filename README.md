@@ -1,54 +1,82 @@
-# React + TypeScript + Vite
+# 🚀 Livraison Kiosk
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une interface tactile professionnelle pour livraison rapide de pièces détachées en autonomie.
+Pensée pour tablettes type borne, avec fond visuel flouté, sécurité admin, et envoi automatique de confirmation par e-mail ✉️.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖥️ Technologies utilisées
 
-## Expanding the ESLint configuration
+- ⚡️ [Vite](https://vitejs.dev/) + [React 19](https://react.dev/)
+- 🎨 [Tailwind CSS 3.4.2](https://tailwindcss.com/)
+- 📬 [Resend](https://resend.com/) pour l’envoi des e-mails
+- 📁 TypeScript + Structure modulaire propre
+- 🌐 Déployé sur [Vercel](https://vercel.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📦 Fonctionnalités principales
+
+- 🔍 Recherche floue (libellé, référence, machine)
+- 🖱️ Ajout rapide d'articles à livrer
+- ✅ Validation de livraison avec date/heure
+- ✉️ Envoi automatique d’un récap par e-mail
+- 🔒 Mode borne sécurisé (pas d’Alt+Tab, F12, clic droit)
+- 🧑‍🔧 Déverrouillage admin par code secret
+
+---
+
+## 📁 Arborescence
+
+```
+📁 livraison-kiosk
+├── api/                → Route API Resend
+│   └── sendEmail.ts
+├── public/             → Fond flouté, assets
+├── src/
+│   ├── composants/     → Composants réutilisables
+│   ├── pages/          → Pages : Livraison, Catalogue
+│   ├── data/           → articles.json
+│   ├── layouts/        → Layouts stylés
+│   └── services/       → Fonctions d’envoi email
+└── .env.example        → Variables d’environnement
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔐 Variables d’environnement
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+# .env.example
+VITE_RESEND_API_KEY=ta_clé_API_resend
+```
+
+---
+
+## ✅ Lancer le projet en local
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 🛰️ Déploiement Vercel
+
+- Push vers GitHub
+- Connecte ton repo sur [vercel.com](https://vercel.com/)
+- Ajoute `RESEND_API_KEY` dans les variables Vercel
+- Deploy 🎉
+
+---
+
+## 🤝 Contributeurs
+
+- 🧠 Code & UI : [@Masterjeremysu](https://github.com/Masterjeremysu)
+
+---
+
+## 📄 Licence
+
+MIT © Masterjeremysu
