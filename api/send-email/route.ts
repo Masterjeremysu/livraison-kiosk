@@ -12,19 +12,19 @@ export async function POST(req: Request) {
   }
 
   try {
-    await resend.emails.send({
-      from: "onboarding@resend.dev",
+    const data = await resend.emails.send({
+      from: 'onboarding@resend.dev',
       to: destinataire,
       subject: `📦 Livraison autonome - ${borne}`,
-      text: `Une livraison autonome a été effectuée depuis la borne : ${borne}\n\nDétails :\n${liste}\n\nDate : ${date}`,
+      text: `Livraison effectuée depuis : ${borne}\n\n${liste}\n\n📅 ${date}`,
     });
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, data }), {
       status: 200,
     });
   } catch (err) {
-    console.error("Erreur Resend:", err);
-    return new Response(JSON.stringify({ error: "Échec d'envoi email" }), {
+    console.error("Erreur envoi Resend", err);
+    return new Response(JSON.stringify({ error: "Erreur serveur" }), {
       status: 500,
     });
   }
